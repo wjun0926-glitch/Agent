@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.mva.MvaApplicationTests" time="21.667" tests="16" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.class.path" value="F:\Agent\mva-java-agent\target\test-classes;F:\Agent\mva-java-agent\target\classes;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-starter-web\3.3.0\spring-boot-starter-web-3.3.0.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-starter\3.3.0\spring-boot-starter-3.3.0.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot\3.3.0\spring-boot-3.3.0.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-autoconfigure\3.3.0\spring-boot-autoconfigure-3.3.0.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-starter-logging\3.3.0\spring-boot-starter-logging-3.3.0.jar;D:\apache-maven-3.9.8\repository\ch\qos\logback\logback-classic\1.5.6\logback-classic-1.5.6.jar;D:\apache-maven-3.9.8\repository\ch\qos\logback\logback-core\1.5.6\logback-core-1.5.6.jar;D:\apache-maven-3.9.8\repository\org\apache\logging\log4j\log4j-to-slf4j\2.23.1\log4j-to-slf4j-2.23.1.jar;D:\apache-maven-3.9.8\repository\org\apache\logging\log4j\log4j-api\2.23.1\log4j-api-2.23.1.jar;D:\apache-maven-3.9.8\repository\org\slf4j\jul-to-slf4j\2.0.13\jul-to-slf4j-2.0.13.jar;D:\apache-maven-3.9.8\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;D:\apache-maven-3.9.8\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-starter-json\3.3.0\spring-boot-starter-json-3.3.0.jar;D:\apache-maven-3.9.8\repository\com\fasterxml\jackson\core\jackson-databind\2.17.1\jackson-databind-2.17.1.jar;D:\apache-maven-3.9.8\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.1\jackson-annotations-2.17.1.jar;D:\apache-maven-3.9.8\repository\com\fasterxml\jackson\core\jackson-core\2.17.1\jackson-core-2.17.1.jar;D:\apache-maven-3.9.8\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.17.1\jackson-datatype-jdk8-2.17.1.jar;D:\apache-maven-3.9.8\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.17.1\jackson-datatype-jsr310-2.17.1.jar;D:\apache-maven-3.9.8\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.17.1\jackson-module-parameter-names-2.17.1.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-starter-tomcat\3.3.0\spring-boot-starter-tomcat-3.3.0.jar;D:\apache-maven-3.9.8\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.24\tomcat-embed-core-10.1.24.jar;D:\apache-maven-3.9.8\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.24\tomcat-embed-el-10.1.24.jar;D:\apache-maven-3.9.8\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.24\tomcat-embed-websocket-10.1.24.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-web\6.1.8\spring-web-6.1.8.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-beans\6.1.8\spring-beans-6.1.8.jar;D:\apache-maven-3.9.8\repository\io\micrometer\micrometer-observation\1.13.0\micrometer-observation-1.13.0.jar;D:\apache-maven-3.9.8\repository\io\micrometer\micrometer-commons\1.13.0\micrometer-commons-1.13.0.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-webmvc\6.1.8\spring-webmvc-6.1.8.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-aop\6.1.8\spring-aop-6.1.8.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-context\6.1.8\spring-context-6.1.8.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-expression\6.1.8\spring-expression-6.1.8.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-starter-test\3.3.0\spring-boot-starter-test-3.3.0.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-test\3.3.0\spring-boot-test-3.3.0.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.3.0\spring-boot-test-autoconfigure-3.3.0.jar;D:\apache-maven-3.9.8\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;D:\apache-maven-3.9.8\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;D:\apache-maven-3.9.8\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;D:\apache-maven-3.9.8\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;D:\apache-maven-3.9.8\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;D:\apache-maven-3.9.8\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;D:\apache-maven-3.9.8\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;D:\apache-maven-3.9.8\repository\org\assertj\assertj-core\3.25.3\assertj-core-3.25.3.jar;D:\apache-maven-3.9.8\repository\net\bytebuddy\byte-buddy\1.14.16\byte-buddy-1.14.16.jar;D:\apache-maven-3.9.8\repository\org\awaitility\awaitility\4.2.1\awaitility-4.2.1.jar;D:\apache-maven-3.9.8\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;D:\apache-maven-3.9.8\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;D:\apache-maven-3.9.8\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;D:\apache-maven-3.9.8\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;D:\apache-maven-3.9.8\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;D:\apache-maven-3.9.8\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;D:\apache-maven-3.9.8\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;D:\apache-maven-3.9.8\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;D:\apache-maven-3.9.8\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;D:\apache-maven-3.9.8\repository\org\mockito\mockito-core\5.11.0\mockito-core-5.11.0.jar;D:\apache-maven-3.9.8\repository\net\bytebuddy\byte-buddy-agent\1.14.16\byte-buddy-agent-1.14.16.jar;D:\apache-maven-3.9.8\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;D:\apache-maven-3.9.8\repository\org\mockito\mockito-junit-jupiter\5.11.0\mockito-junit-jupiter-5.11.0.jar;D:\apache-maven-3.9.8\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;D:\apache-maven-3.9.8\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-core\6.1.8\spring-core-6.1.8.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-jcl\6.1.8\spring-jcl-6.1.8.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-test\6.1.8\spring-test-6.1.8.jar;D:\apache-maven-3.9.8\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="catalina.useNaming" value="false"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.boot.library.path" value="D:\java\jdk21\bin"/>
+    <property name="sun.java.command" value="C:\Users\asus\AppData\Local\Temp\surefire8883298352152556611\surefirebooter-20260630181610879_3.jar C:\Users\asus\AppData\Local\Temp\surefire8883298352152556611 2026-06-30T18-16-10_745-jvmRun1 surefire-20260630181610879_1tmp surefire_0-20260630181610879_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="F:\Agent\mva-java-agent\target\test-classes;F:\Agent\mva-java-agent\target\classes;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-starter-web\3.3.0\spring-boot-starter-web-3.3.0.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-starter\3.3.0\spring-boot-starter-3.3.0.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot\3.3.0\spring-boot-3.3.0.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-autoconfigure\3.3.0\spring-boot-autoconfigure-3.3.0.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-starter-logging\3.3.0\spring-boot-starter-logging-3.3.0.jar;D:\apache-maven-3.9.8\repository\ch\qos\logback\logback-classic\1.5.6\logback-classic-1.5.6.jar;D:\apache-maven-3.9.8\repository\ch\qos\logback\logback-core\1.5.6\logback-core-1.5.6.jar;D:\apache-maven-3.9.8\repository\org\apache\logging\log4j\log4j-to-slf4j\2.23.1\log4j-to-slf4j-2.23.1.jar;D:\apache-maven-3.9.8\repository\org\apache\logging\log4j\log4j-api\2.23.1\log4j-api-2.23.1.jar;D:\apache-maven-3.9.8\repository\org\slf4j\jul-to-slf4j\2.0.13\jul-to-slf4j-2.0.13.jar;D:\apache-maven-3.9.8\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;D:\apache-maven-3.9.8\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-starter-json\3.3.0\spring-boot-starter-json-3.3.0.jar;D:\apache-maven-3.9.8\repository\com\fasterxml\jackson\core\jackson-databind\2.17.1\jackson-databind-2.17.1.jar;D:\apache-maven-3.9.8\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.1\jackson-annotations-2.17.1.jar;D:\apache-maven-3.9.8\repository\com\fasterxml\jackson\core\jackson-core\2.17.1\jackson-core-2.17.1.jar;D:\apache-maven-3.9.8\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.17.1\jackson-datatype-jdk8-2.17.1.jar;D:\apache-maven-3.9.8\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.17.1\jackson-datatype-jsr310-2.17.1.jar;D:\apache-maven-3.9.8\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.17.1\jackson-module-parameter-names-2.17.1.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-starter-tomcat\3.3.0\spring-boot-starter-tomcat-3.3.0.jar;D:\apache-maven-3.9.8\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.24\tomcat-embed-core-10.1.24.jar;D:\apache-maven-3.9.8\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.24\tomcat-embed-el-10.1.24.jar;D:\apache-maven-3.9.8\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.24\tomcat-embed-websocket-10.1.24.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-web\6.1.8\spring-web-6.1.8.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-beans\6.1.8\spring-beans-6.1.8.jar;D:\apache-maven-3.9.8\repository\io\micrometer\micrometer-observation\1.13.0\micrometer-observation-1.13.0.jar;D:\apache-maven-3.9.8\repository\io\micrometer\micrometer-commons\1.13.0\micrometer-commons-1.13.0.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-webmvc\6.1.8\spring-webmvc-6.1.8.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-aop\6.1.8\spring-aop-6.1.8.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-context\6.1.8\spring-context-6.1.8.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-expression\6.1.8\spring-expression-6.1.8.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-starter-test\3.3.0\spring-boot-starter-test-3.3.0.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-test\3.3.0\spring-boot-test-3.3.0.jar;D:\apache-maven-3.9.8\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.3.0\spring-boot-test-autoconfigure-3.3.0.jar;D:\apache-maven-3.9.8\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;D:\apache-maven-3.9.8\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;D:\apache-maven-3.9.8\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;D:\apache-maven-3.9.8\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;D:\apache-maven-3.9.8\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;D:\apache-maven-3.9.8\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;D:\apache-maven-3.9.8\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;D:\apache-maven-3.9.8\repository\org\assertj\assertj-core\3.25.3\assertj-core-3.25.3.jar;D:\apache-maven-3.9.8\repository\net\bytebuddy\byte-buddy\1.14.16\byte-buddy-1.14.16.jar;D:\apache-maven-3.9.8\repository\org\awaitility\awaitility\4.2.1\awaitility-4.2.1.jar;D:\apache-maven-3.9.8\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;D:\apache-maven-3.9.8\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;D:\apache-maven-3.9.8\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;D:\apache-maven-3.9.8\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;D:\apache-maven-3.9.8\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;D:\apache-maven-3.9.8\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;D:\apache-maven-3.9.8\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;D:\apache-maven-3.9.8\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;D:\apache-maven-3.9.8\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;D:\apache-maven-3.9.8\repository\org\mockito\mockito-core\5.11.0\mockito-core-5.11.0.jar;D:\apache-maven-3.9.8\repository\net\bytebuddy\byte-buddy-agent\1.14.16\byte-buddy-agent-1.14.16.jar;D:\apache-maven-3.9.8\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;D:\apache-maven-3.9.8\repository\org\mockito\mockito-junit-jupiter\5.11.0\mockito-junit-jupiter-5.11.0.jar;D:\apache-maven-3.9.8\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;D:\apache-maven-3.9.8\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-core\6.1.8\spring-core-6.1.8.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-jcl\6.1.8\spring-jcl-6.1.8.jar;D:\apache-maven-3.9.8\repository\org\springframework\spring-test\6.1.8\spring-test-6.1.8.jar;D:\apache-maven-3.9.8\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\asus"/>
+    <property name="user.language" value="zh"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2026-04-21"/>
+    <property name="java.home" value="D:\java\jdk21"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="F:\Agent\mva-java-agent"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="C:\Users\asus\AppData\Local\Temp\surefire8883298352152556611\surefirebooter-20260630181610879_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.11+9-LTS-211"/>
+    <property name="user.name" value="asus"/>
+    <property name="stdout.encoding" value="GBK"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="D:\apache-maven-3.9.8\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\asus\AppData\Local\Temp\"/>
+    <property name="catalina.home" value="C:\Users\asus\AppData\Local\Temp\tomcat.0.5563085718925292710"/>
+    <property name="java.version" value="21.0.11"/>
+    <property name="user.dir" value="F:\Agent\mva-java-agent"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="31152"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="catalina.base" value="C:\Users\asus\AppData\Local\Temp\tomcat.0.5563085718925292710"/>
+    <property name="native.encoding" value="GBK"/>
+    <property name="java.library.path" value="D:\java\jdk21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\asus\bin;F:\Git\Git\mingw64\bin;F:\Git\Git\usr\local\bin;F:\Git\Git\usr\bin;F:\Git\Git\usr\bin;F:\Git\Git\mingw64\bin;F:\Git\Git\usr\bin;C:\Users\asus\bin;F:\VMware Workstation 17 Pro\bin;F:\cuda_da\CUDA\lib;F:\cuda_da\CUDA\include;F:\cuda_da\CUDA\bin;F:\cuda_da\CUDA\libnvvp;D:\java\jdk17\bin;D:\java\jdk17\jre\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Common Files\Oracle\Java\javapath;D:\python\Scripts;D:\python;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;D:\搜狗高速下载\Bandizip;D:\搜狗速下载\Python;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\apache-tomcat-9.0.87\lib;%CATALLINA_HOME%\lib\servlet-api.jar;F:\Fuwuqi\xftp;F:\Fuwuqi\xshell;D:\apache-maven-3.9.8\bin;F:\Git\Git\cmd;F:\ClaudeCode\Node;F:\Anaconda;F:\Anaconda\Library\mingw-w64\bin;F:\Anaconda\Library\usr\bin;F:\Anaconda\Library\bin;F:\Anaconda\Scripts;C:\Users\asus\AppData\Local\Microsoft\WindowsApps;D:\IDEA\IntelliJ IDEA 2024.1\bin;D:\apache-maven-3.9.8\bin;F:\Vs\Microsoft VS Code\bin;C:\Users\asus\AppData\Roaming\npm;F:\Git\Git\usr\bin\vendor_perl;F:\Git\Git\usr\bin\core_perl;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="GBK"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="21.0.11+9-LTS-211"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="calculatorChineseOperators" classname="com.example.mva.MvaApplicationTests" time="2.944">
+    <system-out><![CDATA[18:16:11.813 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.mva.MvaApplicationTests]: MvaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+18:16:11.948 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.mva.MvaApplication for test class com.example.mva.MvaApplicationTests
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.0)
+
+2026-06-30T18:16:12.529+08:00  INFO 31152 --- [           main] com.example.mva.MvaApplicationTests      : Starting MvaApplicationTests using Java 21.0.11 with PID 31152 (started by asus in F:\Agent\mva-java-agent)
+2026-06-30T18:16:12.531+08:00  INFO 31152 --- [           main] com.example.mva.MvaApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2026-06-30T18:16:13.834+08:00  INFO 31152 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-06-30T18:16:13.852+08:00  INFO 31152 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-30T18:16:13.852+08:00  INFO 31152 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2026-06-30T18:16:13.919+08:00  INFO 31152 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-06-30T18:16:13.921+08:00  INFO 31152 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1363 ms
+2026-06-30T18:16:14.178+08:00  INFO 31152 --- [           main] com.example.mva.llm.LlmClient            : [LLM] 已配置: provider=openai model=deepseek-chat endpoint=https://api.deepseek.com
+2026-06-30T18:16:14.190+08:00  INFO 31152 --- [           main] com.example.mva.tool.SearchTool          : [Search] 已配置 SerpAPI(Google)，备用: Bing + DuckDuckGo
+2026-06-30T18:16:14.191+08:00  INFO 31152 --- [           main] com.example.mva.tool.ToolRegistry        : [Agent] 注册工具: [calculator, search, todo_manager, fetch_page]
+2026-06-30T18:16:14.193+08:00  INFO 31152 --- [           main] com.example.mva.agent.SessionManager     : [Agent] SessionManager 已初始化 (maxMessages=12)
+2026-06-30T18:16:14.195+08:00  INFO 31152 --- [           main] com.example.mva.agent.AgentRuntime       : [Agent] ReAct Runtime 已初始化 (maxIterations=5)
+2026-06-30T18:16:14.256+08:00  INFO 31152 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-06-30T18:16:14.567+08:00  INFO 31152 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 63212 (http) with context path '/'
+2026-06-30T18:16:14.576+08:00  INFO 31152 --- [           main] com.example.mva.MvaApplicationTests      : Started MvaApplicationTests in 2.444 seconds (process running for 3.589)
+]]></system-out>
+    <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (D:\apache-maven-3.9.8\repository\net\bytebuddy\byte-buddy-agent\1.14.16\byte-buddy-agent-1.14.16.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+  </testcase>
+  <testcase name="listSessions" classname="com.example.mva.MvaApplicationTests" time="0.255">
+    <system-out><![CDATA[2026-06-30T18:16:17.688+08:00  INFO 31152 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-30T18:16:17.689+08:00  INFO 31152 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-30T18:16:17.689+08:00  INFO 31152 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+]]></system-out>
+  </testcase>
+  <testcase name="searchWeather" classname="com.example.mva.MvaApplicationTests" time="2.871">
+    <system-out><![CDATA[2026-06-30T18:16:17.792+08:00  INFO 31152 --- [           main] com.example.mva.tool.SearchTool          : [Search] 搜索: "今天天气怎么样？"
+]]></system-out>
+  </testcase>
+  <testcase name="fetchPageInvalidUrl" classname="com.example.mva.MvaApplicationTests" time="11.355">
+    <system-out><![CDATA[2026-06-30T18:16:20.666+08:00  INFO 31152 --- [           main] com.example.mva.tool.FetchPageTool       : [FetchPage] 抓取: https://not-a-valid-url
+2026-06-30T18:16:32.009+08:00  WARN 31152 --- [           main] com.example.mva.tool.FetchPageTool       : [FetchPage] 抓取异常
+
+java.net.ConnectException: null
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:955) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133) ~[java.net.http:na]
+	at com.example.mva.tool.FetchPageTool.execute(FetchPageTool.java:105) ~[classes/:na]
+	at com.example.mva.MvaApplicationTests.fetchPageInvalidUrl(MvaApplicationTests.java:140) ~[test-classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.2.5.jar:3.2.5]
+Caused by: java.net.ConnectException: null
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1065) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:227) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.AsyncSSLConnection.connectAsync(AsyncSSLConnection.java:56) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.Http2Connection.createAsync(Http2Connection.java:529) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.Http2ClientImpl.getConnectionFor(Http2ClientImpl.java:140) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.ExchangeImpl.get(ExchangeImpl.java:98) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.Exchange.establishExchange(Exchange.java:391) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl0(Exchange.java:584) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl(Exchange.java:428) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsync(Exchange.java:420) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:435) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsyncImpl$7(MultiExchange.java:476) ~[java.net.http:na]
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:950) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2372) ~[na:na]
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:466) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsync0$2(MultiExchange.java:355) ~[java.net.http:na]
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773) ~[na:na]
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$DelegatingExecutor.execute(HttpClientImpl.java:177) ~[java.net.http:na]
+	at java.base/java.util.concurrent.CompletableFuture.completeAsync(CompletableFuture.java:2719) ~[na:na]
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsync(MultiExchange.java:308) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.sendAsync(HttpClientImpl.java:1053) ~[java.net.http:na]
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:933) ~[java.net.http:na]
+	... 72 common frames omitted
+Caused by: java.nio.channels.UnresolvedAddressException: null
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:143) ~[na:na]
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:151) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.checkRemote(SocketChannelImpl.java:842) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:865) ~[na:na]
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:210) ~[java.net.http:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:571) ~[na:na]
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:212) ~[java.net.http:na]
+	... 95 common frames omitted
+
+]]></system-out>
+  </testcase>
+  <testcase name="chatMissingSession" classname="com.example.mva.MvaApplicationTests" time="0.077"/>
+  <testcase name="calculatorDivision" classname="com.example.mva.MvaApplicationTests" time="0.002"/>
+  <testcase name="searchNews" classname="com.example.mva.MvaApplicationTests" time="0.24">
+    <system-out><![CDATA[2026-06-30T18:16:32.104+08:00  INFO 31152 --- [           main] com.example.mva.tool.SearchTool          : [Search] 搜索: "今日新闻"
+]]></system-out>
+  </testcase>
+  <testcase name="fetchPageEmptyUrl" classname="com.example.mva.MvaApplicationTests" time="0.002"/>
+  <testcase name="calculatorBasic" classname="com.example.mva.MvaApplicationTests" time="0.002"/>
+  <testcase name="todoAddAndList" classname="com.example.mva.MvaApplicationTests" time="0.002"/>
+  <testcase name="searchEmptyQuery" classname="com.example.mva.MvaApplicationTests" time="0.002"/>
+  <testcase name="searchGeneral" classname="com.example.mva.MvaApplicationTests" time="0.248">
+    <system-out><![CDATA[2026-06-30T18:16:32.356+08:00  INFO 31152 --- [           main] com.example.mva.tool.SearchTool          : [Search] 搜索: "Java 21"
+]]></system-out>
+  </testcase>
+  <testcase name="fetchPageValidUrl" classname="com.example.mva.MvaApplicationTests" time="0.635">
+    <system-out><![CDATA[2026-06-30T18:16:32.605+08:00  INFO 31152 --- [           main] com.example.mva.tool.FetchPageTool       : [FetchPage] 抓取: https://example.com
+]]></system-out>
+  </testcase>
+  <testcase name="calculatorAddition" classname="com.example.mva.MvaApplicationTests" time="0.002"/>
+  <testcase name="deleteSession" classname="com.example.mva.MvaApplicationTests" time="0.013"/>
+  <testcase name="calculatorComplex" classname="com.example.mva.MvaApplicationTests" time="0.002"/>
+</testsuite>

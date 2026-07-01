@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVA — Minimal Viable Agent</title>
+    <style>
+        /* ── reset & base ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+                     background: #f0f2f5; color: #1a1a2e; }
+        button { cursor: pointer; font-family: inherit; border: none; outline: none; }
+        input, textarea { font-family: inherit; outline: none; }
+
+        /* ── layout ── */
+        .app { display: flex; height: 100vh; max-width: 1400px; margin: 0 auto; }
+        .sidebar { width: 260px; background: #1a1a2e; color: #eee; display: flex; flex-direction: column;
+                   padding: 16px; flex-shrink: 0; }
+        .main { flex: 1; display: flex; flex-direction: column; background: #fff; min-width: 0; }
+
+        /* ── sidebar ── */
+        .sidebar h1 { font-size: 18px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.3px; }
+        .sidebar .subtitle { font-size: 12px; color: #8888aa; margin-bottom: 20px; }
+        .sidebar .section-label { font-size: 11px; text-transform: uppercase; color: #6666aa;
+                                  letter-spacing: 1px; margin-bottom: 8px; }
+        .session-list { flex: 1; overflow-y: auto; margin-bottom: 12px; }
+        .session-list .empty { font-size: 13px; color: #6666aa; text-align: center; margin-top: 24px; }
+        .session-btn { display: block; width: 100%; text-align: left; padding: 10px 12px; border-radius: 8px;
+                       background: transparent; color: #ccc; font-size: 14px; margin-bottom: 4px;
+                       transition: all .15s; }
+        .session-btn:hover { background: rgba(255,255,255,.08); color: #fff; }
+        .session-btn.active { background: #4361ee; color: #fff; font-weight: 600; }
+        .session-btn .badge { float: right; font-size: 11px; background: rgba(255,255,255,.15);
+                              padding: 2px 8px; border-radius: 10px; }
+        .session-btn.active .badge { background: rgba(255,255,255,.25); }
+        .session-btn .del { float: right; color: #aa6666; font-size: 14px; margin-right: 4px;
+                            line-height: 1; display: none; }
+        .session-btn:hover .del { display: inline; }
+        .session-btn .del:hover { color: #ff4444; }
+
+        .sidebar-actions { display: flex; gap: 6px; }
+        .sidebar-actions button { flex: 1; padding: 8px 0; border-radius: 8px; font-size: 13px;
+                                  background: rgba(255,255,255,.08); color: #aaa; transition: all .15s; }
+        .sidebar-actions button:hover { background: rgba(255,255,255,.15); color: #fff; }
+        .sidebar-actions .btn-new { background: #4361ee; color: #fff; }
+        .sidebar-actions .btn-new:hover { background: #3651d4; }
+
+        /* ── chat header ── */
+        .chat-header { padding: 14px 24px; border-bottom: 1px solid #e8e8ec; display: flex;
+                       align-items: center; justify-content: space-between; flex-shrink: 0; }
+        .chat-header h2 { font-size: 16px; font-weight: 600; }
+        .chat-header .hint { font-size: 12px; color: #999; }
+
+        /* ── messages ── */
+        .messages { flex: 1; overflow-y: auto; padding: 20px 24px; display: flex; flex-direction: column; gap: 12px; }
+        .messages .empty-chat { text-align: center; color: #bbb; margin-top: 60px; font-size: 14px; line-height: 1.8; }
+        .messages .empty-chat .big { font-size: 40px; margin-bottom: 8px; }
+        .msg { max-width: 80%; padding: 12px 16px; border-radius: 16px; line-height: 1.6;
+               font-size: 14px; animation: fadeIn .25s ease; white-space: pre-wrap; word-break: break-word; }
+        .msg.user { align-self: flex-end; background: #4361ee; color: #fff;
+                    border-bottom-right-radius: 4px; }
+        .msg.assistant { align-self: flex-start; background: #f0f2f5; color: #1a1a2e;
+                         border-bottom-left-radius: 4px; }
+        .msg.system { align-self: center; background: #fff3cd; color: #856404; font-size: 12px;
+                      border-radius: 8px; padding: 6px 12px; }
+        .msg.tool-call { align-self: flex-start; background: #e8f4f8; color: #0c5460; font-size: 13px;
+                         border-radius: 8px; font-family: 'SF Mono', 'Fira Code', monospace; }
+        .msg.trace { align-self: stretch; background: #1a1a2e; color: #00ff88; font-size: 12px;
+                     border-radius: 8px; font-family: 'SF Mono', 'Fira Code', monospace;
+                     padding: 8px 12px; opacity: 0.85; max-width: 100%; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ── trace log panel ── */
+        .trace-panel { max-height: 0; overflow: hidden; transition: max-height .3s ease; flex-shrink: 0; }
+        .trace-panel.open { max-height: 300px; }
+        .trace-panel pre { margin: 0; padding: 10px 24px; background: #1a1a2e; color: #00ff88;
+                           font-size: 12px; font-family: 'SF Mono', 'Fira Code', monospace;
+                           overflow-y: auto; max-height: 280px; line-height: 1.7;
+                           white-space: pre-wrap; word-break: break-all; }
+
+        /* ── input area ── */
+        .input-area { padding: 16px 24px; border-top: 1px solid #e8e8ec; display: flex; gap: 10px;
+                      flex-shrink: 0; background: #fff; }
+        .input-area input { flex: 1; padding: 10px 16px; border-radius: 12px; border: 1px solid #d0d0d8;
+                            font-size: 14px; transition: border-color .15s; }
+        .input-area input:focus { border-color: #4361ee; }
+        .input-area .btn-send { padding: 10px 24px; background: #4361ee; color: #fff; border-radius: 12px;
+                                font-size: 14px; font-weight: 600; transition: background .15s; }
+        .input-area .btn-send:hover { background: #3651d4; }
+        .input-area .btn-send:disabled { opacity: .5; cursor: not-allowed; }
+        .input-area .btn-trace { padding: 10px 14px; background: transparent; color: #888;
+                                 border-radius: 12px; font-size: 13px; border: 1px solid #d0d0d8; }
+        .input-area .btn-trace:hover { background: #f0f2f5; }
+        .input-area .btn-trace.active { background: #1a1a2e; color: #00ff88; border-color: #1a1a2e; }
+
+        /* ── scrollbar ── */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+
+        /* ── loading ── */
+        .typing { display: inline-flex; align-items: center; gap: 4px; }
+        .typing span { width: 6px; height: 6px; background: #888; border-radius: 50%;
+                       animation: bounce 1.2s infinite; }
+        .typing span:nth-child(2) { animation-delay: .2s; }
+        .typing span:nth-child(3) { animation-delay: .4s; }
+        @keyframes bounce { 0%, 60%, 100% { transform: translateY(0); }
+                             30% { transform: translateY(-6px); } }
+    </style>
+</head>
+<body>
+<div class="app">
+
+    <!-- ═══ Sidebar ═══ -->
+    <aside class="sidebar">
+        <h1>🧠 MVA</h1>
+        <div class="subtitle">Minimal Viable Agent</div>
+        <div class="section-label">会话列表</div>
+        <div class="session-list" id="sessionList">
+            <div class="empty">点击下方按钮创建会话</div>
+        </div>
+        <div class="sidebar-actions">
+            <button class="btn-new" onclick="newSession()">＋ 新会话</button>
+            <button onclick="clearAll()" style="flex:0.4">✕ 清空</button>
+        </div>
+    </aside>
+
+    <!-- ═══ Main ═══ -->
+    <main class="main">
+        <div class="chat-header">
+            <h2 id="currentSessionLabel">选择或创建一个会话</h2>
+            <span class="hint" id="msgCount"></span>
+        </div>
+
+        <div class="messages" id="messageList">
+            <div class="empty-chat">
+                <div class="big">👋</div>
+                <div>欢迎使用 Minimal Viable Agent!</div>
+                <div style="font-size:13px; color:#aaa; margin-top:4px;">在下方输入消息开始对话</div>
+            </div>
+        </div>
+
+        <!-- ═══ Trace panel ═══ -->
+        <div class="trace-panel" id="tracePanel">
+            <pre id="traceContent"></pre>
+        </div>
+
+        <div class="input-area">
+            <input id="messageInput" type="text" placeholder="输入消息..." autofocus
+                   onkeydown="if(event.key==='Enter' && !event.shiftKey){ event.preventDefault(); send(); }">
+            <button class="btn-trace" id="traceToggle" onclick="toggleTrace()">🐛 日志</button>
+            <button class="btn-send" id="sendBtn" onclick="send()">发送</button>
+        </div>
+    </main>
+</div>
+
+<script>
+    // ════════════════════════════════════════════════════════════
+    //  State
+    // ════════════════════════════════════════════════════════════
+    let sessions = [];
+    let activeId = null;
+    let messageHistory = {};   // sessionId -> array of { role, content }
+    let isLoading = false;
+    let traceVisible = false;
+
+    // ════════════════════════════════════════════════════════════
+    //  Init
+    // ════════════════════════════════════════════════════════════
+    document.addEventListener('DOMContentLoaded', () => {
+        // Create default session
+        if (sessions.length === 0) newSession();
+
+        // Load sessions from backend
+        fetchSessions();
+    });
+
+    // ════════════════════════════════════════════════════════════
+    //  Session management
+    // ════════════════════════════════════════════════════════════
+    function newSession() {
+        const id = 'session-' + Date.now();
+        sessions.push(id);
+        messageHistory[id] = [];
+        renderSidebar();
+        switchSession(id);
+        renderMessages(id);
+    }
+
+    function switchSession(id) {
+        activeId = id;
+        document.querySelectorAll('.session-btn').forEach(b => {
+            b.classList.toggle('active', b.dataset.sid === id);
+        });
+        document.getElementById('currentSessionLabel').textContent = '📌 ' + id;
+        renderMessages(id);
+        updateMsgCount(id);
+        document.getElementById('messageInput').focus();
+    }
+
+    function deleteSession(id) {
+        if (!confirm('确定要删除会话 "' + id + '" 吗？')) return;
+
+        fetch('/api/sessions/' + encodeURIComponent(id), { method: 'DELETE' })
+            .then(() => {
+                sessions = sessions.filter(s => s !== id);
+                delete messageHistory[id];
+                if (sessions.length === 0) newSession();
+                else switchSession(sessions[sessions.length - 1]);
+                renderSidebar();
+            });
+    }
+
+    function clearAll() {
+        if (!confirm('确定要清除所有会话吗？')) return;
+        fetch('/api/sessions', { method: 'DELETE' })
+            .then(() => {
+                sessions = [];
+                messageHistory = {};
+                newSession();
+            });
+    }
+
+    function fetchSessions() {
+        fetch('/api/sessions')
+            .then(r => r.json())
+            .then(data => {
+                // Merge remote sessions that aren't local
+                const remote = data.sessions || [];
+                remote.forEach(s => {
+                    if (!sessions.includes(s)) {
+                        sessions.push(s);
+                        if (!messageHistory[s]) messageHistory[s] = [];
+                    }
+                });
+                renderSidebar();
+            })
+            .catch(() => { /* ignore — sessions managed locally */ });
+    }
+
+    // ════════════════════════════════════════════════════════════
+    //  Render
+    // ════════════════════════════════════════════════════════════
+    function renderSidebar() {
+        const list = document.getElementById('sessionList');
+        if (sessions.length === 0) {
+            list.innerHTML = '<div class="empty">点击下方按钮创建会话</div>';
+            return;
+        }
+        list.innerHTML = sessions.map(s => `
+            <div class="session-btn ${s === activeId ? 'active' : ''}" data-sid="${s}"
+                 onclick="switchSession('${s}')">
+                💬 ${s}
+                <span class="del" onclick="event.stopPropagation(); deleteSession('${s}')">✕</span>
+                <span class="badge">${(messageHistory[s] || []).length}</span>
+            </div>
+        `).join('');
+    }
+
+    function renderMessages(sid) {
+        const el = document.getElementById('messageList');
+        const msgs = messageHistory[sid] || [];
+
+        if (msgs.length === 0) {
+            el.innerHTML = `
+                <div class="empty-chat">
+                    <div class="big">👋</div>
+                    <div>欢迎使用 Minimal Viable Agent!</div>
+                    <div style="font-size:13px; color:#aaa; margin-top:4px;">在下方输入消息开始对话</div>
+                </div>`;
+            return;
+        }
+
+        el.innerHTML = msgs.map(m => {
+            const cls = m.role === 'user' ? 'user' :
+                        m.role === 'assistant' ? 'assistant' :
+                        m.role === 'system' ? 'system' :
+                        m.role === 'tool-call' ? 'tool-call' : 'trace';
+            return `<div class="msg ${cls}">${escapeHtml(m.content)}</div>`;
+        }).join('');
+
+        el.scrollTop = el.scrollHeight;
+    }
+
+    function updateMsgCount(sid) {
+        const el = document.getElementById('msgCount');
+        const count = (messageHistory[sid] || []).length;
+        el.textContent = count > 0 ? count + ' 条消息' : '';
+    }
+
+    function addMessage(sid, role, content) {
+        if (!messageHistory[sid]) messageHistory[sid] = [];
+        messageHistory[sid].push({ role, content });
+        if (sid === activeId) {
+            renderMessages(sid);
+            updateMsgCount(sid);
+            renderSidebar();
+        }
+    }
+
+    // ════════════════════════════════════════════════════════════
+    //  Send / Chat
+    // ════════════════════════════════════════════════════════════
+    function send() {
+        const input = document.getElementById('messageInput');
+        const msg = input.value.trim();
+        if (!msg || isLoading || !activeId) return;
+
+        // Add user message locally
+        addMessage(activeId, 'user', msg);
+        input.value = '';
+        isLoading = true;
+        setLoading(true);
+
+        // Show typing indicator
+        const el = document.getElementById('messageList');
+        el.innerHTML += `<div class="msg assistant" id="typingIndicator"><div class="typing"><span></span><span></span><span></span></div></div>`;
+        el.scrollTop = el.scrollHeight;
+
+        // Clear old trace
+        document.getElementById('traceContent').textContent = '';
+
+        fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ sessionId: activeId, message: msg })
+        })
+        .then(r => r.json())
+        .then(data => {
+            // Remove typing indicator
+            const ti = document.getElementById('typingIndicator');
+            if (ti) ti.remove();
+
+            // Add assistant reply
+            addMessage(activeId, 'assistant', data.reply || '(空回复)');
+
+            // Show trace if present
+            if (data.traceLog && data.traceLog.length > 0) {
+                document.getElementById('traceContent').textContent =
+                    data.traceLog.map((l, i) => `[${i+1}] ${l}`).join('\n');
+                if (!traceVisible) {
+                    traceVisible = true;
+                    document.getElementById('tracePanel').classList.add('open');
+                    document.getElementById('traceToggle').classList.add('active');
+                }
+            }
+
+            if (data.truncated) {
+                addMessage(activeId, 'system', '⚠️ 响应被截断 — ' + data.reply);
+            }
+
+            // Refresh sessions from backend
+            fetchSessions();
+        })
+        .catch(err => {
+            const ti = document.getElementById('typingIndicator');
+            if (ti) ti.remove();
+            addMessage(activeId, 'assistant', '⚠️ 请求失败: ' + err.message);
+        })
+        .finally(() => {
+            isLoading = false;
+            setLoading(false);
+            input.focus();
+        });
+    }
+
+    function setLoading(loading) {
+        document.getElementById('sendBtn').disabled = loading;
+        document.getElementById('sendBtn').textContent = loading ? '处理中...' : '发送';
+        document.getElementById('messageInput').disabled = loading;
+    }
+
+    // ════════════════════════════════════════════════════════════
+    //  Trace panel
+    // ════════════════════════════════════════════════════════════
+    function toggleTrace() {
+        traceVisible = !traceVisible;
+        document.getElementById('tracePanel').classList.toggle('open', traceVisible);
+        document.getElementById('traceToggle').classList.toggle('active', traceVisible);
+    }
+
+    // ════════════════════════════════════════════════════════════
+    //  Utils
+    // ════════════════════════════════════════════════════════════
+    function escapeHtml(s) {
+        const d = document.createElement('div');
+        d.textContent = s;
+        return d.innerHTML;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+agent:
+  # --- LLM Provider Configuration ---
+  provider: openai                          # "openai" or "anthropic"
+  api-key: ${LLM_API_KEY:sk-7f4fe4c857024a3a852f2ff7c9c98322}                  # Set via env var LLM_API_KEY
+  model: ${LLM_MODEL:deepseek-chat}         # DeepSeek 模型名: deepseek-chat 或 deepseek-reasoner
+  endpoint: ${LLM_ENDPOINT:https://api.deepseek.com}  # API endpoint (DeepSeek OpenAI 兼容)
+  max-tokens: 2048
+  temperature: 0.7
+
+  # --- 联网搜索配置 ---
+  # SearchTool 默认使用 DuckDuckGo 免费 API（无需 key）
+  # 配置 search.api-key 或设置 SEARCH_API_KEY 环境变量可切换到 SerpAPI（Google 搜索结果）
+  search:
+    api-key: ${SEARCH_API_KEY:f6afd4292052387364f91485ff261f2794669eb0c9fb22dabc9e1754ce931cc2}
+
+  # --- Context Window ---
+  max-messages: 12                          # Sliding window size (system prompt always preserved)
+
+  # --- ReAct Loop ---
+  max-iterations: 5                         # Max tool-call rounds per user message
