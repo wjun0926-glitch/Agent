@@ -265,6 +265,6 @@ agent:
 
 此外，`fetch_page` 工具可抓取任意 URL 的文本内容，配合 search 实现"搜索→阅读→总结"的完整链路。
 
-## License
+## 视频演示
 
-MIT
+[点击观看]：（https://www.bilibili.com/video/BV1p2Tp6RETL/?spm_id_from=333.1387.homepage.video_card.click）
